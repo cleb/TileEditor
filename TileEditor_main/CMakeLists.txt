@@ -1,0 +1,1 @@
+add_library(TileEditor_main Rom/RomFile.cpp Rom/RomFile.h System/CoreSystem.cpp System/CoreSystem.h Rom/RomDataProvider.h)

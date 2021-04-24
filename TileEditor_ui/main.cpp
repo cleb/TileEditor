@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <memory>
 #include "UI/MainWindow.h"
-#include "System/CoreSystem.h"
+#include "../TileEditor_main/System/CoreSystem.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);

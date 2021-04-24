@@ -10,7 +10,7 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
-#include "../System/CoreSystem.h"
+#include "../../TileEditor_main/System/CoreSystem.h"
 
 class MainWindow : public QMainWindow {
     public:

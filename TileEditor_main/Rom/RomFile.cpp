@@ -11,5 +11,5 @@ RomFile::RomFile(std::vector<unsigned char> data){
 }
 
 unsigned int RomFile::getValue(unsigned int offset, unsigned int bitSize) {
-    return 1;
+    return 0xff;
 }

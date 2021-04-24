@@ -3,7 +3,7 @@
 //
 
 #include "MainWindow.h"
-#include "../Rom/RomFile.h"
+#include "../../TileEditor_main/Rom/RomFile.h"
 #include <QFileDialog>
 #include <fstream>
 
