@@ -6,6 +6,7 @@
 #define TILEEDITOR_ROMDATAPROVIDER_H
 
 class RomDataProvider {
+public:
     virtual unsigned int getValue(unsigned int offset, unsigned int bitSize) = 0;
 };
 

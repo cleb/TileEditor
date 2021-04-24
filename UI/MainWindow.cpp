@@ -3,11 +3,12 @@
 //
 
 #include "MainWindow.h"
+#include "../Rom/RomFile.h"
 #include <QFileDialog>
 #include <fstream>
 
 
-MainWindow::MainWindow(std::shared_ptr<System>) : system(system) {
+MainWindow::MainWindow(std::shared_ptr<CoreSystem>) : system(system) {
     createActions();
     createMenu();
 }
@@ -30,4 +31,7 @@ void MainWindow::openFile() {
     auto data = std::vector<unsigned char>((std::istreambuf_iterator<char>(file)),
                              std::istreambuf_iterator<char>());
 
+
+    std::shared_ptr<RomDataProvider> provider = std::shared_ptr<RomDataProvider>(new RomFile(data));
+    system->setData(provider);
 }

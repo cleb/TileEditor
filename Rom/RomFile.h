@@ -10,6 +10,7 @@
 #include "RomDataProvider.h"
 
 class RomFile : public RomDataProvider {
+public:
     RomFile(std::vector<unsigned char> data);
 
     unsigned int getValue(unsigned int offset, unsigned int bitSize) override;
