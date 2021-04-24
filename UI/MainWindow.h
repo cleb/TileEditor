@@ -10,18 +10,21 @@
 #include <QAction>
 #include <QMenu>
 #include <QMenuBar>
+#include "../System/System.h"
 
 class MainWindow : public QMainWindow {
     public:
-        MainWindow();
+        MainWindow(std::shared_ptr<System> system);
     private:
         void createActions(void);
         void createMenu(void);
-
         void openFile(void);
+
+        std::shared_ptr<System> system;
 
         std::unique_ptr<QAction> openAct;
         std::unique_ptr<QMenu> fileMenu;
+
 
 };
 
