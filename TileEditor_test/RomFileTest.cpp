@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE Suite_example
+#define BOOST_TEST_MODULE TileEditor
 #include <boost/test/unit_test.hpp>
 #include <memory>
 #include "../TileEditor_main/Rom/RomFile.h"
