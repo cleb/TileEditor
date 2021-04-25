@@ -11,6 +11,7 @@
 MainWindow::MainWindow(std::shared_ptr<CoreSystem>) : system(system) {
     createActions();
     createMenu();
+    createWidgets();
 }
 
 void MainWindow::createActions() {
@@ -21,6 +22,10 @@ void MainWindow::createActions() {
 void MainWindow::createMenu() {
     fileMenu = std::unique_ptr<QMenu>(menuBar()->addMenu("&File"));
     fileMenu->addAction(openAct.get());
+}
+
+void MainWindow::createWidgets() {
+    tileWidget = std::unique_ptr<TileWidget>(new TileWidget(this));
 }
 
 void MainWindow::openFile() {
