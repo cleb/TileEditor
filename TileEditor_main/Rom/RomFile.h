@@ -16,6 +16,7 @@ public:
     unsigned int getValue(unsigned int offset, unsigned int bitSize) override;
 
 private:
+    unsigned int truncateToBitSize(unsigned int value, unsigned int bitSize);
     std::vector<unsigned char> file;
 };
 
