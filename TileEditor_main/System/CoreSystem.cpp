@@ -7,3 +7,14 @@
 void CoreSystem::setData(std::shared_ptr<RomDataProvider> provider) {
     data = provider;
 }
+
+Tile CoreSystem::getTile(int offset) {
+    Tile tile(8,8);
+    for(int y = 0; y < 8; y++){
+        for(int x = 0; x < 8; x++) {
+            unsigned int fileOffset = (y * 8 + x) * 4 + offset * 8;
+            tile.set(x,y,data->getValue(fileOffset,4));
+        }
+    }
+    return tile;
+}

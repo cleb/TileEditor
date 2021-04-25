@@ -24,4 +24,14 @@ BOOST_AUTO_TEST_SUITE(RomFileTest)
         auto romFile = std::unique_ptr<RomFile>(new RomFile(data));
         BOOST_CHECK_EQUAL(romFile->getValue(15,8),0x7f);
     }
+    BOOST_AUTO_TEST_CASE(testGetRomValueHalfByteStart) {
+        std::vector<unsigned char> data = {0xff,0x00,0xff};
+        auto romFile = std::unique_ptr<RomFile>(new RomFile(data));
+        BOOST_CHECK_EQUAL(romFile->getValue(12,8),0xf);
+    }
+    BOOST_AUTO_TEST_CASE(testGetRomValueHalfByte) {
+        std::vector<unsigned char> data = {0xff,0xff,0xff};
+        auto romFile = std::unique_ptr<RomFile>(new RomFile(data));
+        BOOST_CHECK_EQUAL(romFile->getValue(12,4),0xf);
+    }
 BOOST_AUTO_TEST_SUITE_END()

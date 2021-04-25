@@ -25,7 +25,7 @@ void MainWindow::createMenu() {
 }
 
 void MainWindow::createWidgets() {
-    tileWidget = std::unique_ptr<TileWidget>(new TileWidget(this));
+    tileWidget = std::unique_ptr<TileWidget>(new TileWidget(this, system));
 }
 
 void MainWindow::openFile() {
@@ -39,4 +39,5 @@ void MainWindow::openFile() {
 
     std::shared_ptr<RomDataProvider> provider = std::shared_ptr<RomDataProvider>(new RomFile(data));
     system->setData(provider);
+    tileWidget->resetTiles();
 }
