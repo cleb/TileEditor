@@ -11,11 +11,12 @@
 
 class CoreSystem {
 public:
-    void setData(std::shared_ptr<RomDataProvider> provider);
+    void setData(RomDataProvider *provider);
     Tile getTile(int offset);
 
+
 private:
-    std::shared_ptr<RomDataProvider> data;
+    std::unique_ptr<RomDataProvider> data;
 };
 
 

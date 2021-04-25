@@ -37,7 +37,6 @@ void MainWindow::openFile() {
                              std::istreambuf_iterator<char>());
 
 
-    std::shared_ptr<RomDataProvider> provider = std::shared_ptr<RomDataProvider>(new RomFile(data));
-    system->setData(provider);
+    system->setData(new RomFile(data));
     tileWidget->resetTiles();
 }
