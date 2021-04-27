@@ -6,8 +6,7 @@
 #include "TileWidget.h"
 
 TileWidget::TileWidget(QWidget *parent, std::shared_ptr<CoreSystem> sys) : QWidget(parent), system(sys) {
-    pixmap = std::unique_ptr<QPixmap>(new QPixmap(400,400));
-    setGeometry(0,100,1024,1024);
+    pixmap = new QPixmap(400,400);
 }
 
 void TileWidget::resetTiles() {
@@ -20,7 +19,7 @@ void TileWidget::resetTiles() {
 }
 
 void TileWidget::drawTile(int ox, int oy, Tile &tile) {
-    QPainter painter(pixmap.get());
+    QPainter painter(pixmap);
     for(int y = 0; y < 8; y++) {
         for(int x  = 0; x < 8; x++) {
             unsigned int c = tile.get(x,y);

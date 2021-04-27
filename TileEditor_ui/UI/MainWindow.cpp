@@ -5,27 +5,32 @@
 #include "MainWindow.h"
 #include "../../TileEditor_main/Rom/RomFile.h"
 #include <QFileDialog>
+#include <QDockWidget>
 #include <fstream>
 
 
-MainWindow::MainWindow(std::shared_ptr<CoreSystem>) : system(system) {
+MainWindow::MainWindow(std::shared_ptr<CoreSystem> sys) : system(sys) {
     createActions();
     createMenu();
     createWidgets();
 }
 
 void MainWindow::createActions() {
-        openAct = std::unique_ptr<QAction>(new QAction(tr("&Open"), this));
-        connect(openAct.get(), &QAction::triggered, this, &MainWindow::openFile);
+        openAct = new QAction(tr("&Open"), this);
+        connect(openAct, &QAction::triggered, this, &MainWindow::openFile);
 }
 
 void MainWindow::createMenu() {
-    fileMenu = std::unique_ptr<QMenu>(menuBar()->addMenu("&File"));
-    fileMenu->addAction(openAct.get());
+    fileMenu = menuBar()->addMenu("&File");
+    fileMenu->addAction(openAct);
 }
 
 void MainWindow::createWidgets() {
-    tileWidget = std::unique_ptr<TileWidget>(new TileWidget(this, system));
+    tileDockWidget = new QDockWidget(tr("Tile View"), this);
+    tileDockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    tileWidget = new TileWidget(tileDockWidget, system);
+    tileDockWidget->setWidget(tileWidget);
+
 }
 
 void MainWindow::openFile() {

@@ -27,10 +27,10 @@ private:
     void openFile(void);
 
     std::shared_ptr<CoreSystem> system;
-
-    std::unique_ptr<QAction> openAct;
-    std::unique_ptr<QMenu> fileMenu;
-    std::unique_ptr<TileWidget> tileWidget;
+    QAction *openAct;
+    QMenu *fileMenu;
+    TileWidget *tileWidget;
+    QDockWidget *tileDockWidget;
 
 
 };
