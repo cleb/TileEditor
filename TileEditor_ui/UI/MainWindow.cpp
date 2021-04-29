@@ -28,7 +28,7 @@ void MainWindow::createMenu() {
 void MainWindow::createWidgets() {
     tileDockWidget = new QDockWidget(tr("Tile View"), this);
     tileDockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
-    tileWidget = new TileWidget(tileDockWidget, system);
+    tileWidget = new TilesWidget(tileDockWidget, system);
     tileDockWidget->setWidget(tileWidget);
 
 }

@@ -11,7 +11,7 @@
 #include <QMenu>
 #include <QMenuBar>
 #include "../../TileEditor_main/System/CoreSystem.h"
-#include "TileWidget.h"
+#include "TilesWidget.h"
 
 class MainWindow : public QMainWindow {
 public:
@@ -29,7 +29,7 @@ private:
     std::shared_ptr<CoreSystem> system;
     QAction *openAct;
     QMenu *fileMenu;
-    TileWidget *tileWidget;
+    TilesWidget *tileWidget;
     QDockWidget *tileDockWidget;
 
 

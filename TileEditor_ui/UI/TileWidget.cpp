@@ -1,24 +1,14 @@
 //
-// Created by jakub on 25.04.21.
+// Created by jakub on 27.04.21.
 //
 
-#include <QPainter>
 #include "TileWidget.h"
+#include <QPainter>
 
-TileWidget::TileWidget(QWidget *parent, std::shared_ptr<CoreSystem> sys) : QWidget(parent), system(sys) {
-    pixmap = new QPixmap(400,400);
-}
-
-void TileWidget::resetTiles() {
-    for(int y = 0; y < 50; y++){
-        for(int x = 0; x < 50; x ++){
-            Tile tile = system->getTile((y * 50 + x)*32);
-            drawTile(x,y,tile);
-        }
-    }
-}
-
-void TileWidget::drawTile(int ox, int oy, Tile &tile) {
+TileWidget::TileWidget(QWidget *parent, Tile t) : QWidget(parent), tile(t) {
+    pixmap = new QPixmap(8,8);
+    setFixedWidth(32);
+    setFixedHeight(32);
     QPainter painter(pixmap);
     for(int y = 0; y < 8; y++) {
         for(int x  = 0; x < 8; x++) {
@@ -29,13 +19,12 @@ void TileWidget::drawTile(int ox, int oy, Tile &tile) {
             unsigned char b = ((c & 2)) | lastBit;
             QColor color(r << 6,g << 6,b << 6);
             painter.setPen(color);
-            painter.drawPoint(x + ox*8,y + oy*8);
+            painter.drawPoint(x,y);
         }
     }
 }
 
-void TileWidget::paintEvent(QPaintEvent *event) {
+void TileWidget::paintEvent(QPaintEvent *event){
     QPainter painter(this);
-    painter.drawPixmap(0,0,1600,1600,*pixmap);
-
+    painter.drawPixmap(0,0,32,32,*pixmap);
 }
