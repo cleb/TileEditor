@@ -21,6 +21,7 @@ private:
     std::shared_ptr<CoreSystem> system;
 
     QGridLayout *layout;
+    QWidget *viewport;
 };
 
 

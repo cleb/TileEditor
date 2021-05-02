@@ -13,6 +13,7 @@ class CoreSystem {
 public:
     void setData(RomDataProvider *provider);
     Tile getTile(int offset);
+    int getNumTiles();
 
 
 private:

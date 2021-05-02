@@ -29,3 +29,7 @@ unsigned int RomFile::getValue(unsigned int bitOffset, unsigned int bitSize) {
     const unsigned int downsized = result >> (8 - bitSize);
     return truncateToBitSize(downsized, bitSize);
 }
+
+unsigned int RomFile::getSize() {
+    return file.size();
+}

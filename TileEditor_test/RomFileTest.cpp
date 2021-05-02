@@ -34,4 +34,10 @@ BOOST_AUTO_TEST_SUITE(RomFileTest)
         auto romFile = std::unique_ptr<RomFile>(new RomFile(data));
         BOOST_CHECK_EQUAL(romFile->getValue(12,4),0xf);
     }
+
+    BOOST_AUTO_TEST_CASE(testGetSize) {
+        std::vector<unsigned char> data = {0xff,0xff,0xff};
+        auto romFile = std::unique_ptr<RomFile>(new RomFile(data));
+        BOOST_CHECK_EQUAL(romFile->getSize(),0x3);
+    }
 BOOST_AUTO_TEST_SUITE_END()

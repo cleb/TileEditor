@@ -8,6 +8,7 @@
 class RomDataProvider {
 public:
     virtual unsigned int getValue(unsigned int offset, unsigned int bitSize) = 0;
+    unsigned virtual int getSize() = 0;
 };
 
 #endif //TILEEDITOR_ROMDATAPROVIDER_H

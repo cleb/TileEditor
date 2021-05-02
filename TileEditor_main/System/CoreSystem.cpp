@@ -18,3 +18,7 @@ Tile CoreSystem::getTile(int offset) {
     }
     return tile;
 }
+
+int CoreSystem::getNumTiles() {
+    return data->getSize() / 32;
+}
