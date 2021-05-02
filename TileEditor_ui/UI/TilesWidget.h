@@ -12,6 +12,7 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QPushButton>
+#include <QSpinBox>
 #include "../../TileEditor_main/System/Tile.h"
 #include "../../TileEditor_main/System/CoreSystem.h"
 
@@ -31,8 +32,7 @@ private:
     QGraphicsView *view;
     QGraphicsScene *scene;
     QBoxLayout *layout;
-    QWidget *viewport;
-    QLineEdit *offsetBox;
+    QSpinBox *offsetBox;
     QLabel *offsetLabel;
     QPushButton *offsetSetButton;
 };

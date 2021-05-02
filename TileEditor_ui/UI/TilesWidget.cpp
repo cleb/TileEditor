@@ -12,14 +12,14 @@
 
 TilesWidget::TilesWidget(QWidget *parent, std::shared_ptr<CoreSystem> sys) : QWidget(parent), system(sys), scene(new QGraphicsScene(this)) {
     view = new QGraphicsView(scene);
-    offsetBox = new QLineEdit(this);
     layout = new QBoxLayout(QBoxLayout::LeftToRight);
     layout->addWidget(view);
     setLayout(layout);
 
     offset = 0;
 
-    offsetBox = new QLineEdit(this);
+    offsetBox = new QSpinBox(this);
+    offsetBox->setValue(0);
     offsetLabel = new QLabel(tr("Offset"));
     offsetSetButton = new QPushButton(tr("Change offset"));
     layout->addWidget(offsetLabel);
