@@ -13,6 +13,7 @@ MainWindow::MainWindow(std::shared_ptr<CoreSystem> sys) : system(sys) {
     createActions();
     createMenu();
     createWidgets();
+    showMaximized();
 }
 
 void MainWindow::createActions() {
@@ -28,8 +29,10 @@ void MainWindow::createMenu() {
 void MainWindow::createWidgets() {
     tileDockWidget = new QDockWidget(tr("Tile View"), this);
     tileDockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    tileDockWidget->setFloating(false);
     tileWidget = new TilesWidget(tileDockWidget, system);
     tileDockWidget->setWidget(tileWidget);
+    addDockWidget(Qt::LeftDockWidgetArea,tileDockWidget);
 
 }
 
