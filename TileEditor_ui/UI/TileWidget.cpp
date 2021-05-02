@@ -5,11 +5,9 @@
 #include "TileWidget.h"
 #include <QPainter>
 
-TileWidget::TileWidget(QWidget *parent, Tile t) : QWidget(parent), tile(t) {
-    pixmap = new QPixmap(8,8);
-    setFixedWidth(32);
-    setFixedHeight(32);
-    QPainter painter(pixmap);
+TileWidget::TileWidget(Tile t) : QGraphicsPixmapItem(), tile(t) {
+    QPixmap pixmap = QPixmap(8,8);
+    QPainter painter(&pixmap);
     for(int y = 0; y < 8; y++) {
         for(int x  = 0; x < 8; x++) {
             unsigned int c = tile.get(x,y);
@@ -22,9 +20,5 @@ TileWidget::TileWidget(QWidget *parent, Tile t) : QWidget(parent), tile(t) {
             painter.drawPoint(x,y);
         }
     }
-}
-
-void TileWidget::paintEvent(QPaintEvent *event){
-    QPainter painter(this);
-    painter.drawPixmap(0,0,32,32,*pixmap);
+    setPixmap(pixmap);
 }

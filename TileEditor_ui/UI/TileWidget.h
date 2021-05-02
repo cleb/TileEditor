@@ -5,17 +5,15 @@
 #ifndef TILEEDITOR_TILEWIDGET_H
 #define TILEEDITOR_TILEWIDGET_H
 
-#include <QWidget>
+#include <QGraphicsPixmapItem>
 #include <memory>
 #include "../../TileEditor_main/System/Tile.h"
 
-class TileWidget : public QWidget {
+class TileWidget : public QGraphicsPixmapItem {
 public:
-    TileWidget(QWidget *parent, Tile tile);
+    TileWidget(Tile tile);
 private:
     Tile tile;
-    void paintEvent(QPaintEvent *event) override;
-
     QPixmap *pixmap;
 };
 

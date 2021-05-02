@@ -6,6 +6,7 @@
 #define TILEEDITOR_TILESWIDGET_H
 #include <QWidget>
 #include <QGridLayout>
+#include <QGraphicsView>
 #include <memory>
 #include <vector>
 #include "../../TileEditor_main/System/Tile.h"
@@ -20,7 +21,9 @@ private:
 
     std::shared_ptr<CoreSystem> system;
 
-    QGridLayout *layout;
+    QGraphicsView *view;
+    QGraphicsScene *scene;
+    QBoxLayout *layout;
     QWidget *viewport;
 };
 
