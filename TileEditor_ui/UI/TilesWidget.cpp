@@ -35,7 +35,7 @@ void TilesWidget::resetTiles() {
 
     for(int i = 0; i < numTiles; i ++){
         Tile tile = system->getTile(i*32 + offset);
-        TileWidget *newTileWidget = new TileWidget(tile);
+        TileWidget *newTileWidget = new TileWidget(tile, system->getActivePalette());
         newTileWidget->setPos(QPoint(i%10 * 9,i/10 * 9));
         scene->addItem(newTileWidget);
     }

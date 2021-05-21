@@ -1,1 +1,1 @@
-add_library(TileEditor_main Rom/RomFile.cpp Rom/RomFile.h System/CoreSystem.cpp System/CoreSystem.h Rom/RomDataProvider.h System/Tile.cpp System/Tile.h)
+add_library(TileEditor_main Rom/RomFile.cpp Rom/RomFile.h System/CoreSystem.cpp System/CoreSystem.h Rom/RomDataProvider.h System/Tile.cpp System/Tile.h System/Color.h System/Color.cpp System/Palette.cpp System/Palette.h)
