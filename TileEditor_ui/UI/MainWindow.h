@@ -12,6 +12,7 @@
 #include <QMenuBar>
 #include "../../TileEditor_main/System/CoreSystem.h"
 #include "TilesWidget.h"
+#include "EditorWidget.h"
 
 class MainWindow : public QMainWindow {
 public:
@@ -31,6 +32,8 @@ private:
     QMenu *fileMenu;
     TilesWidget *tileWidget;
     QDockWidget *tileDockWidget;
+    QDockWidget *editorDockWidget;
+    EditorWidget *editorWidget;
 
 
 };

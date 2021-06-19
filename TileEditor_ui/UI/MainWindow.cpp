@@ -33,6 +33,12 @@ void MainWindow::createWidgets() {
     tileWidget = new TilesWidget(tileDockWidget, system);
     tileDockWidget->setWidget(tileWidget);
     addDockWidget(Qt::LeftDockWidgetArea,tileDockWidget);
+    editorDockWidget = new QDockWidget(tr("Editor"), this);
+    editorDockWidget->setAllowedAreas(Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea);
+    editorDockWidget->setFloating(false);
+    editorWidget = new EditorWidget(editorDockWidget);
+    editorDockWidget->setWidget(editorWidget);
+    addDockWidget(Qt::RightDockWidgetArea, editorDockWidget);
 
 }
 
