@@ -18,11 +18,16 @@
 
 
 class TilesWidget : public QWidget {
+Q_OBJECT
 public:
     TilesWidget(QWidget *parent, std::shared_ptr<CoreSystem> system);
     void resetTiles();
 public slots:
     void offsetChanged();
+    void onTileClicked(Tile t);
+signals:
+    void tileClicked(Tile t);
+
 private:
 
     std::shared_ptr<CoreSystem> system;

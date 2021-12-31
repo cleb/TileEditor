@@ -38,6 +38,7 @@ void TilesWidget::resetTiles() {
         TileWidget *newTileWidget = new TileWidget(tile, system->getActivePalette());
         newTileWidget->setPos(QPoint(i%10 * 9,i/10 * 9));
         scene->addItem(newTileWidget);
+        connect(newTileWidget, &TileWidget::tileClicked,this, &TilesWidget::onTileClicked);
     }
 
     QTransform matrix;
@@ -48,4 +49,8 @@ void TilesWidget::resetTiles() {
 void TilesWidget::offsetChanged() {
     offset = offsetBox->text().toInt();
     resetTiles();
+}
+
+void TilesWidget::onTileClicked(Tile t) {
+    emit tileClicked(t);
 }

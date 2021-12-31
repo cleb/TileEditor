@@ -10,9 +10,15 @@
 #include "../../TileEditor_main/System/Tile.h"
 #include "../../TileEditor_main/System/Palette.h"
 
-class TileWidget : public QGraphicsPixmapItem {
+class TileWidget : public QObject, public QGraphicsPixmapItem {
+Q_OBJECT
 public:
     TileWidget(Tile tile, Palette *palette);
+public slots:
+    void onClick();
+signals:
+    void tileClicked(Tile tile);
+
 private:
     Tile tile;
     QPixmap *pixmap;

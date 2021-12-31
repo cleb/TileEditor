@@ -15,8 +15,12 @@
 #include "EditorWidget.h"
 
 class MainWindow : public QMainWindow {
+Q_OBJECT
 public:
     MainWindow(std::shared_ptr<CoreSystem> system);
+
+public slots:
+    void tileClicked(Tile t);
 
 private:
     void createActions(void);
@@ -26,6 +30,8 @@ private:
     void createWidgets(void);
 
     void openFile(void);
+
+    void connectSignals(void);
 
     std::shared_ptr<CoreSystem> system;
     QAction *openAct;

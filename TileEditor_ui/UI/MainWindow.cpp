@@ -13,7 +13,12 @@ MainWindow::MainWindow(std::shared_ptr<CoreSystem> sys) : system(sys) {
     createActions();
     createMenu();
     createWidgets();
+    connectSignals();
     showMaximized();
+}
+
+void MainWindow::connectSignals() {
+    connect(tileWidget,&TilesWidget::tileClicked, this, &MainWindow::tileClicked);
 }
 
 void MainWindow::createActions() {
@@ -53,4 +58,7 @@ void MainWindow::openFile() {
 
     system->setData(new RomFile(data));
     tileWidget->resetTiles();
+}
+void MainWindow::tileClicked(Tile t) {
+
 }
