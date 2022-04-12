@@ -9,19 +9,21 @@
 #include <memory>
 #include "../../TileEditor_main/System/Tile.h"
 #include "../../TileEditor_main/System/Palette.h"
+#include "../../TileEditor_main/System/CoreSystem.h"
 
 class TileWidget : public QObject, public QGraphicsPixmapItem {
 Q_OBJECT
 public:
-    TileWidget(Tile tile, Palette *palette);
+    TileWidget(unsigned int offset, Palette *palette, std::shared_ptr<CoreSystem> sys);
 public slots:
     void onClick();
 signals:
-    void tileClicked(Tile tile);
+    void tileClicked(unsigned int offset);
 
 private:
     Tile tile;
     QPixmap *pixmap;
+    unsigned int tileOffset;
 };
 
 

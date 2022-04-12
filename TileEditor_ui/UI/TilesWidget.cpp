@@ -34,8 +34,7 @@ void TilesWidget::resetTiles() {
     int numTiles = system->getNumTiles();
 
     for(int i = 0; i < numTiles; i ++){
-        Tile tile = system->getTile(i*32 + offset);
-        TileWidget *newTileWidget = new TileWidget(tile, system->getActivePalette());
+        TileWidget *newTileWidget = new TileWidget(i*32 + offset, system->getActivePalette(), system);
         newTileWidget->setPos(QPoint(i%10 * 9,i/10 * 9));
         scene->addItem(newTileWidget);
         connect(newTileWidget, &TileWidget::tileClicked,this, &TilesWidget::onTileClicked);
@@ -51,6 +50,6 @@ void TilesWidget::offsetChanged() {
     resetTiles();
 }
 
-void TilesWidget::onTileClicked(Tile t) {
-    emit tileClicked(t);
+void TilesWidget::onTileClicked(unsigned int offset) {
+    emit tileClicked(offset);
 }

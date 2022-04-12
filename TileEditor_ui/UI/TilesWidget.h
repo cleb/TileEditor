@@ -24,9 +24,9 @@ public:
     void resetTiles();
 public slots:
     void offsetChanged();
-    void onTileClicked(Tile t);
+    void onTileClicked(unsigned int t);
 signals:
-    void tileClicked(Tile t);
+    void tileClicked(unsigned int offset);
 
 private:
 

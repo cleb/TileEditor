@@ -20,7 +20,7 @@ public:
     MainWindow(std::shared_ptr<CoreSystem> system);
 
 public slots:
-    void tileClicked(Tile t);
+    void tileClicked(unsigned int t);
 
 private:
     void createActions(void);

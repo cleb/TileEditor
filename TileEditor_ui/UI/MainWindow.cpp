@@ -59,6 +59,6 @@ void MainWindow::openFile() {
     system->setData(new RomFile(data));
     tileWidget->resetTiles();
 }
-void MainWindow::tileClicked(Tile t) {
+void MainWindow::tileClicked(unsigned int t) {
 
 }

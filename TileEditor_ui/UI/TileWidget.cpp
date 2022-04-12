@@ -5,7 +5,7 @@
 #include "TileWidget.h"
 #include <QPainter>
 
-TileWidget::TileWidget(Tile t, Palette *palette) : QGraphicsPixmapItem(), QObject(), tile(t) {
+TileWidget::TileWidget(unsigned int offset, Palette *palette, std::shared_ptr<CoreSystem> system) : QGraphicsPixmapItem(), QObject(), tile(system->getTile(offset)), tileOffset(offset) {
     QPixmap pixmap = QPixmap(8,8);
     QPainter painter(&pixmap);
     for(int y = 0; y < 8; y++) {
@@ -20,5 +20,5 @@ TileWidget::TileWidget(Tile t, Palette *palette) : QGraphicsPixmapItem(), QObjec
     setPixmap(pixmap);
 }
 void TileWidget::onClick() {
-    emit tileClicked(tile);
+    emit tileClicked(this->tileOffset);
 }
